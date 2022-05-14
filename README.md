@@ -1,6 +1,6 @@
 # Just felt forgetful.
 
-thought i'd make a todo-app where **micro-interactions** was the most important part.
+thought i'd make a todo-app where **micro-interactions** would play the most important part.
 
 This project is made with React, Framer motion, Tailwind and some other great npm packages.
 
