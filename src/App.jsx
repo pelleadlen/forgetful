@@ -92,9 +92,9 @@ function App() {
           />
 
           <AnimatePresence>
-            <motion.div className="flex flex-col">
+            <motion.div className="ml-32 mr-0 lg:ml-64 lg:mr-64 flex flex-col">
               <TodoList
-                className="gap-2 sm:ml-0  sm:mr-0 p-4 pt-14"
+                className="gap-2 p-4  pt-14"
                 todos={todos}
                 toggleComplete={toggleComplete}
                 removeTodo={removeTodo}

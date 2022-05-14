@@ -20,7 +20,7 @@ function Todo({ todo, toggleComplete, removeTodo, className, editTodo }) {
   return (
     <div className={className}>
       <div
-        className={`flex flex-col max-w-s overflow-hidden p-6 rounded border border-black shadow-slate shadow-md mb-2 bg-${todo.color}-400`}
+        className={`flex flex-col overflow-hidden p-6 rounded border border-black shadow-slate shadow-md mb-2 bg-${todo.color}-400`}
       >
         <CancelIcon
           sx={{
@@ -56,7 +56,7 @@ function Todo({ todo, toggleComplete, removeTodo, className, editTodo }) {
             />
           ) : (
             <div
-              className=" text-2xl font-medium   "
+              className=" text-2xl    "
               style={{
                 color: "black",
                 textDecoration: todo.completed ? "line-through" : null,

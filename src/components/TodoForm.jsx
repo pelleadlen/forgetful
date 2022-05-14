@@ -25,14 +25,21 @@ function TodoForm({ addTodo, open, close, color }) {
 
   return (
     <Dialog open={open} onClose={close}>
-      <form className="rounded" onSubmit={handleSubmit}>
+      <form className="rounded flex flex-row w-96  " onSubmit={handleSubmit}>
         <input
-          placeholder="add todo"
-          className="inputForm p-4 border-1 outline-black z-10 rounded border-black text-xl w-96"
+          fullwidth
+          placeholder="type your todo here"
+          className="inputForm p-4 border-1 outline-none rounded border-black text-lg w-full "
           onChange={handleTaskInputChange}
         />
 
-        <button onClick={close} type="submit"></button>
+        <button
+          className=" text-gray-300 text-xl pr-3 "
+          onClick={close}
+          type="submit"
+        >
+          ↵
+        </button>
       </form>
     </Dialog>
   );
