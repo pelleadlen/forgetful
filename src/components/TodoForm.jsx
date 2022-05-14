@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Dialog from "@mui/material/Dialog";
-import { Editor } from "@tinymce/tinymce-react";
 
 uuidv4();
 
