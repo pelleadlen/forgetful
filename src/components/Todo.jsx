@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CancelIcon from "@mui/icons-material/Cancel";
+
 import "../App.css";
 
 function Todo({ todo, toggleComplete, removeTodo, className, editTodo }) {

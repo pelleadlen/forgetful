@@ -7,7 +7,6 @@ import { Loader } from "./components/Loader";
 import { motion, AnimatePresence } from "framer-motion";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
-import { Loaders } from "./components/Loader";
 
 const LOCAL_STORAGE_KEY = "react-todo-list-todos-2";
 
