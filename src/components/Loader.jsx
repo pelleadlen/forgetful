@@ -1,50 +1,90 @@
 import React from "react";
 import { motion } from "framer-motion";
-import "../App.css";
 
-export function Loader() {
+const text = [
+  { letter: "F", bg: "rgb(74 222 128)" },
+  { letter: "O", bg: "rgb(192 132 252)" },
+  { letter: "R", bg: "rgb(252 165 165)" },
+  { letter: "G", bg: "rgb(96 165 250)" },
+  { letter: "E", bg: "rgb(74 222 128)" },
+  { letter: "T", bg: "rgb(216 180 254)" },
+  { letter: "F", bg: "rgb(252 165 165)" },
+  { letter: "U", bg: "rgb(192 132 252)" },
+  { letter: "L", bg: "rgb(234 179 8)" },
+];
+
+export const Loader = () => {
+  const moveOut = {
+    initial: {
+      opacity: 1,
+      y: 0,
+    },
+    animate: {
+      opacity: 0,
+      y: -100,
+      transition: {
+        delay: 4,
+        duration: 0.5,
+      },
+    },
+  };
+
+  const parent = {
+    initial: {
+      opacity: 0,
+    },
+    viewed: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+  };
+
+  const child = {
+    initial: {
+      opacity: 0,
+      y: -20,
+    },
+    viewed: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 80,
+        damping: 12,
+      },
+    },
+  };
   return (
-    <motion.div
-      initial={{ y: `+20px`, opacity: 0 }}
-      animate={{ y: `0`, opacity: 1 }}
-      transition={{ duration: 4, type: "spring", stiffness: 50 }}
-      className="flex flex-col h-screen w-full items-center justify-center  "
-    >
-      <div className="flex gap-1 mb-1">
-        <div className=" letter w-24 h-28 flex items-center justify-center pl-8 pr-8 pt-2 pb-2 bg-green-400 border-2 rounded border-black">
-          <h1 className="text-8xl text-white   ">F</h1>
-        </div>
-        <div className=" letter w-24 h-28 flex items-center justify-center pl-8 pr-8 pt-2 pb-2 bg-purple-400 border-2 rounded border-black">
-          <h1 className="text-8xl text-white   ">O</h1>
-        </div>
-        <div className=" letter w-24 h-28 flex items-center justify-center pl-8 pr-8 pt-2 pb-2 bg-red-300 border-2 rounded border-black">
-          <h1 className="text-8xl text-white   ">R</h1>
-        </div>
-      </div>
-
-      <div className="flex gap-1 mb-1">
-        <div className=" letter w-24 h-28  flex items-center justify-center pl-8 pr-8 pt-2 pb-2 bg-blue-400 border-2 rounded border-black">
-          <h1 className="text-8xl text-white   ">G</h1>
-        </div>
-        <div className=" letter w-24 h-28  flex items-center justify-center pl-8 pr-8 pt-2 pb-2 bg-green-400 border-2 rounded border-black">
-          <h1 className="text-8xl text-white   ">E</h1>
-        </div>
-        <div className=" letter w-24 h-28  flex items-center justify-center pl-8 pr-8 pt-2 pb-2 bg-purple-300 border-2 rounded border-black">
-          <h1 className="text-8xl text-white   ">T</h1>
-        </div>
-      </div>
-
-      <div className="flex gap-1">
-        <div className=" letter w-24 h-28 flex items-center justify-center pl-8 pr-8 pt-2 pb-2 bg-red-300 border-2 rounded border-black">
-          <h1 className="text-8xl text-white   ">F</h1>
-        </div>
-        <div className=" letter w-24 h-28 flex items-center justify-center pl-8 pr-8 pt-2 pb-2 bg-purple-400 border-2 rounded border-black">
-          <h1 className="text-8xl text-white   ">U</h1>
-        </div>
-        <div className=" letter w-24 h-28 flex items-center justify-center pl-8 pr-8 pt-2 pb-2 bg-yellow-500 border-2 rounded border-black">
-          <h1 className="text-8xl text-white   ">L</h1>
-        </div>
-      </div>
-    </motion.div>
+    <>
+      <motion.div
+        initial="initial"
+        animate="animate"
+        variants={moveOut}
+        className="flex flex-col  h-screen w-full items-center justify-center  "
+      >
+        <motion.ul
+          className="lettergrid"
+          variants={parent}
+          initial="initial"
+          animate="viewed"
+        >
+          {text.map(({ letter, bg }, index) => (
+            <motion.li
+              className="letters"
+              variants={child}
+              style={{ backgroundColor: `${bg}` }}
+              key={index}
+            >
+              {letter}
+            </motion.li>
+          ))}
+        </motion.ul>
+      </motion.div>
+    </>
   );
-}
+};

@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 
 const buttons = [
   { key: "blue", color: "bg-blue-400" },
-  { key: "orange", color: "bg-orange-400", marginTop: "mt-4" },
-  { key: "green", color: "bg-green-400", marginTop: "mt-4" },
-  { key: "purple", color: "bg-purple-400", marginTop: "mt-4" },
-  { key: "pink", color: "bg-pink-400", marginTop: "mt-4" },
+  { key: "orange", color: "bg-orange-400", marginTop: "mt-2" },
+  { key: "green", color: "bg-green-400", marginTop: "mt-2" },
+  { key: "purple", color: "bg-purple-400", marginTop: "mt-2" },
+  { key: "pink", color: "bg-pink-400", marginTop: "mt-2" },
 ];
 
 const containerVariants = {
@@ -60,7 +60,7 @@ export function FabButton({ openModal, setColor }) {
       >
         {/* ---fab-- */}
         <motion.div
-          className=" z-10 mt-4 h-10 w-10 rounded-full bg-black flex items-center justify-center"
+          className=" z-10  h-10 w-10 rounded-full bg-black flex items-center justify-center"
           animate={{ rotate: isOpen ? 180 + 45 : 0 }}
           onClick={() => setIsOpen(!isOpen)}
           whileHover={{ scale: 1.1 }}

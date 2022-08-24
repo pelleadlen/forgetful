@@ -19,16 +19,17 @@ function TodoList({
       axis="y"
       values={todos}
       onReorder={onReorder}
-      className={className}
+      className=" self-start pt-12 flex flex-col gap-2"
     >
       {todos.length ? (
         todos.map((todo) => (
           <Reorder.Item
-            whileHover={{ scale: 1.005 }}
+            layout
+            whileHover={{ scale: 1.002 }}
             animate={{ y: 0, opacity: 1 }}
-            initial={{ y: -24, opacity: 0, scale: 1 }}
-            transition={{ duration: 0.3, type: "spring", stiffness: 50 }}
-            exit={{ y: +24, opacity: 0 }}
+            initial={{ y: -12, opacity: 0, scale: 1 }}
+            transition={{ type: "spring", stiffness: 55 }}
+            exit={{ y: +12, opacity: 0 }}
             className="relative"
             key={todo.id}
             value={todo}

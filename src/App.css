@@ -7,4 +7,121 @@ body {
   background-image: radial-gradient(#efefef 1px, transparent 0);
   background-size: 30px 30px;
   background-position: -19px -19px;
+  overflow: hidden;
+  position: relative;
+}
+
+.main-container {
+  margin: auto;
+  max-width: 1200px;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: scroll;
+}
+
+nav {
+  position: absolute;
+  top: 3rem;
+  left: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    background: white;
+    z-index: 100;
+    left: 1rem;
+  }
+  .todo-item {
+    margin-left: 2rem;
+  }
+  .main-container {
+    margin: 0rem 1rem;
+    min-width: 100vw;
+  }
+}
+
+.message {
+  font-size: 2.2vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+form {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#inpt {
+  width: 1rem;
+  height: 1rem;
+}
+#input-form {
+  padding: 1rem;
+  min-width: 200px;
+  width: 500px;
+}
+
+.submit-btn {
+  position: absolute;
+  color: rgb(107 114 128);
+  right: 0.5rem;
+  padding-left: 0.4rem;
+  background: white;
+}
+
+.todo-edit {
+  background-color: inherit;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.todo-text {
+  display: inline-block;
+  max-width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+.todo-item {
+  width: clamp(200px, 70vw, 800px);
+}
+
+.lettergrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 100%));
+  gap: 0.5rem;
+}
+
+.letters {
+  padding: 2rem 0.5rem;
+  width: 6rem;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #000;
+  border-radius: 0.5rem;
+  font-size: 4rem;
+}
+
+@media (max-width: 425px) {
+  .letters {
+    padding: 1.5rem 0.35rem;
+    width: 5rem;
+    height: 6rem;
+    font-size: 3rem;
+  }
+  .lettergrid {
+    gap: 0.3rem;
+  }
 }

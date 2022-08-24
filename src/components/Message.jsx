@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const Message = () => {
   const messages = [
@@ -9,9 +10,14 @@ const Message = () => {
   const randomMessages = messages[Math.floor(Math.random() * messages.length)];
 
   return (
-    <div className=" min-h-screen -mt-14  flex items-center justify-center text-base md:text-lg lg:text-2xl  tracking-tight text-gray-500 ">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className=" message  text-gray-500 "
+    >
       {randomMessages}
-    </div>
+    </motion.div>
   );
 };
 

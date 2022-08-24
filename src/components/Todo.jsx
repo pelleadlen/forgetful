@@ -8,65 +8,50 @@ function Todo({ todo, toggleComplete, removeTodo, className, editTodo }) {
 
   function handleCheckboxClick() {
     toggleComplete(todo.id);
+    setTimeout(() => {
+      removeTodo(todo.id);
+    }, 2000);
   }
 
-  function handleRemoveClick() {
-    removeTodo(todo.id);
-  }
   const handleEditing = () => {
     setEditing(true);
   };
 
   return (
-    <div className={className}>
-      <div
-        className={`flex flex-col overflow-hidden p-6 rounded border border-black shadow-slate shadow-md mb-2 bg-${todo.color}-400`}
-      >
-        <CancelIcon
-          sx={{
-            width: `16px`,
-            height: `16px`,
-            color: `black`,
+    <div
+      className={` border rounded items-center todo-item border-black flex gap-2 p-4 bg-${todo.color}-400`}
+    >
+      <input
+        id="inpt"
+        type="checkbox"
+        className={`accent-black`}
+        onClick={handleCheckboxClick}
+      />
+
+      {editing ? (
+        <input
+          className="todo-edit "
+          onChange={(e) => setInput(e.target.value)}
+          onBlur={() => {
+            editTodo({ ...todo, task: input });
+            setEditing(false);
           }}
-          className="self-end cancel"
-          onClick={() => {
-            handleRemoveClick();
+          onSubmit={() => {
+            editTodo({ ...todo, task: input });
+            setEditing(false);
           }}
         />
-
-        <div className="flex items-center gap-2 ">
-          <input
-            type="checkbox"
-            className=" h-6 w-6  mr-2 accent-black "
-            onClick={handleCheckboxClick}
-          />
-
-          {editing ? (
-            <input
-              className="bg-inherit outline-none text-2xl font-medium "
-              onChange={(e) => setInput(e.target.value)}
-              onBlur={() => {
-                editTodo({ ...todo, task: input });
-                setEditing(false);
-              }}
-              onSubmit={() => {
-                editTodo({ ...todo, task: input });
-                setEditing(false);
-              }}
-            />
-          ) : (
-            <div
-              className=" text-2xl    "
-              style={{
-                color: "black",
-                textDecoration: todo.completed ? "line-through" : null,
-              }}
-            >
-              <div onDoubleClick={handleEditing}>{todo.task}</div>
-            </div>
-          )}
+      ) : (
+        <div
+          className="todo-text"
+          style={{
+            color: "black",
+            textDecoration: todo.completed ? "line-through" : null,
+          }}
+        >
+          <div onDoubleClick={handleEditing}>{todo.task}</div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

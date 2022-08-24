@@ -7,6 +7,7 @@ import { Loader } from "./components/Loader";
 import { motion, AnimatePresence } from "framer-motion";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import { Loaders } from "./components/Loader";
 
 const LOCAL_STORAGE_KEY = "react-todo-list-todos-2";
 
@@ -76,11 +77,12 @@ function App() {
         <Loader loading={loading} />
       ) : (
         <motion.div
+          className="main-container"
           initial={{ opacity: 0, y: +`10` }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <div className="h-full overflow-y-hidden fixed left-0 top-0 z-10">
+          <div>
             <NavBar openModal={handleClickOpen} setColor={setColor} />
           </div>
 
@@ -92,16 +94,13 @@ function App() {
           />
 
           <AnimatePresence>
-            <motion.div className="ml-32 mr-0 lg:ml-64 lg:mr-64 flex flex-col">
-              <TodoList
-                className="gap-2 p-4  pt-14"
-                todos={todos}
-                toggleComplete={toggleComplete}
-                removeTodo={removeTodo}
-                editTodo={editTodo}
-                setTodos={setTodos}
-              />
-            </motion.div>
+            <TodoList
+              todos={todos}
+              toggleComplete={toggleComplete}
+              removeTodo={removeTodo}
+              editTodo={editTodo}
+              setTodos={setTodos}
+            />
           </AnimatePresence>
         </motion.div>
       )}
