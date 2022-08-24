@@ -27,7 +27,7 @@ function TodoList({
             layout
             whileHover={{ scale: 1.002 }}
             animate={{ y: 0, opacity: 1 }}
-            initial={{ y: -12, opacity: 0, scale: 1 }}
+            initial={{ y: -8, opacity: 0, scale: 1 }}
             transition={{ type: "spring", stiffness: 55 }}
             exit={{ y: +12, opacity: 0 }}
             className="relative"
